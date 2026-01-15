@@ -78,8 +78,8 @@ const Home = () => {
       {/* Testimonial Section */}
       <section id="testimonials" className="w-full bg-neutral-900">
         <div className="relative h-[540px] overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
           <div className="mx-auto lg:max-w-[1080px] px-4 xl:px-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
 

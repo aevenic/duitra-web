@@ -1,102 +1,137 @@
+import { useState, useEffect } from 'react'
 import { textHeading2, textSemi } from '../../data/uiStyles'
 
 const CardBenefits = ({ title, description, index }) => {
   const num = index + 1;
+  const [typedText, setTypedText] = useState('');
+
+  useEffect(() => {
+    if (index === 1) {
+      const fullText = "> Analyzing expenses...\n> Pattern detected: high dining costs.\n> Suggested budget: Limit $200 for dining.";
+      let charIndex = 0;
+      let isTyping = true;
+      let timeoutId;
+
+      const type = () => {
+        if (charIndex <= fullText.length) {
+          setTypedText(fullText.substring(0, charIndex));
+          charIndex++;
+          timeoutId = setTimeout(type, 50);
+        } else {
+          // Pause for 4 seconds, then restart
+          timeoutId = setTimeout(() => {
+            charIndex = 0;
+            setTypedText('');
+            type();
+          }, 4000);
+        }
+      };
+
+      type();
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [index]);
 
   const renderIllustration = () => {
     switch (index) {
-      case 0: // Benefits 1
-        return (
-          <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
-            <div className="absolute inset-5 flex justify-center sm:justify-start sm:pl-4 items-center">
-              <div className="flex gap-x-3">
-                <div className="relative h-16 w-24 rounded-md bg-gradient-to-tl from-blue-800 to-blue-500 px-3 py-2 font-semibold shadow-lg shadow-black/30 flex items-end">
-                  1
-                  <div className="absolute bottom-3 right-3 w-10 h-1.5 bg-white rounded-full"></div>
-                  <div className="absolute top-[-8px] left-5 py-0.5 bg-[#141414]/85 border border-blue-200/30 rounded-md text-[10px] text-center shadow-lg shadow-black/30 w-[68px]">Best Deal</div>
-                </div>
-                <div className="relative h-16 w-24 rounded-md border-2 border-blue-200/10 bg-[#181818]/40 backdrop-blur px-3 py-2 font-semibold shadow-lg shadow-black/30 flex items-end">
-                  2
-                  <div className="absolute bottom-3 right-3 w-10 h-1.5 bg-white rounded-full"></div>
-                </div>
-                <div className="relative h-16 w-24 rounded-md border-2 border-blue-200/10 bg-[#181818]/40 backdrop-blur px-3 py-2 font-semibold shadow-lg shadow-black/30 flex items-end">
-                  3
-                  <div className="absolute bottom-3 right-3 w-10 h-1.5 bg-white rounded-full"></div>
-                </div>
-              </div>
-            </div>
-            <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
-          </div>
-        );
-      case 1: // Benefits 2
+      case 0: // Local & Cloud Storage
         return (
           <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative flex items-center justify-center w-[152px] h-[152px]">
-                <div className='absolute top-2 left-1 rotate-[-8deg] p-1 flex justify-center rounded-lg bg-gradient-to-tl from-blue-600 to-blue-300 w-[38px] font-black text-black text-[20px] shadow-lg shadow-black/30'>
-                  $
+              <div className="relative flex items-center justify-center gap-4">
+                {/* Local Device - Made square (w-16) and icon larger */}
+                <div className="relative flex flex-col items-center justify-center h-16 w-16 rounded-lg bg-[#181818]/80 border border-blue-500/30 backdrop-blur shadow-lg shadow-blue-500/10">
+                  <span className="material-symbols-outlined text-blue-400" style={{ fontSize: '28px' }}>smartphone</span>
                 </div>
-                <div className='absolute rotate-[8deg] p-2 rounded-lg bg-[#181818]/40 backdrop-blur border-2 border-blue-300 h-[66px] shadow-lg shadow-black/30 text-white'>
-                  <span className="material-symbols-outlined" style={{ fontSize: '48px' }}> qr_code_scanner </span>
+
+                {/* Sync Icon - Made larger */}
+                <div className="flex items-center justify-center">
+                  <span className="material-symbols-outlined text-blue-300" style={{ fontSize: '24px' }}>sync_alt</span>
                 </div>
-                <div className='absolute bottom-2 right-1 rotate-[32deg] p-1 flex justify-center rounded-lg bg-gradient-to-tl from-blue-600 to-blue-300 w-[38px] font-black text-black text-[20px] shadow-lg shadow-black/30'>
-                  $
+
+                {/* Cloud - Icon larger/clearer */}
+                <div className="relative flex flex-col items-center justify-center h-16 w-16 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 shadow-lg shadow-blue-500/20">
+                  <span className="material-symbols-outlined text-white" style={{ fontSize: '28px' }}>cloud_upload</span>
+                </div>
+
+                {/* Decor elements */}
+                <div className="absolute -top-6 -right-4 w-20 h-20 bg-blue-500/20 blur-xl rounded-full"></div>
+                <div className="absolute -bottom-6 -left-4 w-20 h-20 bg-blue-400/10 blur-xl rounded-full"></div>
+              </div>
+            </div>
+            <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
+          </div>
+        );
+      case 1: // Integrated with AI
+        return (
+          <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              {/* Terminal Window */}
+              <div className="w-full h-full bg-[#1e1e1e] rounded-md border border-neutral-700/40 shadow-xl overflow-hidden flex flex-col">
+                {/* Terminal Header */}
+                <div className="bg-[#2d2d2d] px-1.5 py-1.5 flex items-center gap-1.5 border-b border-neutral-700/40">
+                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                </div>
+                {/* Terminal Content */}
+                <div className="p-2 font-mono text-[12px] leading-relaxed text-blue-300">
+                  <div className="whitespace-pre-line">
+                    {typedText}
+                    <span className="animate-pulse inline-block w-1 h-3 bg-blue-300 align-middle ml-1"></span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
           </div>
         );
-      case 2: // Benefits 3
+      case 2: // Voice Note Input
         return (
           <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
-            <div className="absolute inset-5 flex justify-center items-center">
-              <div className="relative w-full max-w-xs">
-                <div className="p-3 rounded-md border border-blue-200/10 bg-[#181818]/40 backdrop-blur">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="space-y-0.5">
-                      <p className="text-[10px] uppercase text-blue-300"> Project brief </p>
-                      <p className="text-[12px] text-white"> Tell us about your product </p>
-                    </div>
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-tl from-blue-600 to-blue-300"></span>
-                  </div>
-                  <div className="mt-2 space-y-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="h-4 w-4">
-                        <span className="block h-full w-full rounded bg-gradient-to-tl from-blue-600 to-blue-300"></span>
-                      </span>
-                      <p className="text-[10px] text-white/70"> Goals & Success Metrics </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex h-4 w-4 items-center justify-center rounded border border-slate-600">
-                        <span className="h-1.5 w-1.5 rounded-full bg-slate-500"></span>
-                      </span>
-                      <p className="text-[10px] text-slate-300"> Target Audience & Users </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex h-4 w-4 items-center justify-center rounded border border-slate-600">
-                        <span className="h-1.5 w-1.5 rounded-full bg-slate-500"></span>
-                      </span>
-                      <p className="text-[10px] text-slate-300"> Brand & Constraints </p>
-                    </div>
-                  </div>
-                </div>
+            <style>
+              {`
+                @keyframes waveform {
+                  0%, 100% { height: 20%; }
+                  50% { height: var(--peak, 90%); }
+                }
+                .waveform-bar {
+                  animation: waveform 1.2s ease-in-out infinite;
+                }
+              `}
+            </style>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative flex items-center justify-center">
 
-                <div className="absolute -right-3 -bottom-2 rounded-md border border-blue-200/10 bg-[#181818]/40 p-2 backdrop-blur-xs shadow-lg shadow-black/30 w-[120px]">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-6 w-3 items-center justify-center rounded-full bg-gradient-to-tl from-blue-600 to-blue-300">
-                    </div>
-                    <div className="">
-                      <p className="text-[10px] font-medium text-white">
-                        Kickoff call
-                      </p>
-                      <p className="text-[9px] text-white/60">
-                        30 min discovery
-                      </p>
-                    </div>
-                  </div>
+                {/* Ripple Effect - Concentric circles */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-blue-500/30 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-blue-500/20 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-blue-500/10 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-blue-500/5 rounded-full"></div>
+
+                {/* Audio Waveform Bars */}
+                <div className="relative z-10 flex items-center gap-1.5 h-20">
+                  {[30, 80, 50, 90, 60, 40, 75, 45, 85, 35].map((height, i) => (
+                    <div
+                      key={i}
+                      className={`waveform-bar w-1.5 bg-gradient-to-t from-blue-600 to-blue-400 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.3)]`}
+                      style={{
+                        height: `${height}%`,
+                        '--peak': (i === 0 || i === 9) ? '65%' : '90%',
+                        animationDuration: `${0.8 + (i % 4) * 0.2}s`,
+                        animationDelay: `${i * 0.15}s`,
+                        opacity: 0.7 + (i % 3) * 0.15
+                      }}
+                    ></div>
+                  ))}
                 </div>
               </div>
+
+              {/* Background Glow */}
+              <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
             </div>
             <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
           </div>
