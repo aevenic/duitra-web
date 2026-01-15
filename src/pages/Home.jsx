@@ -30,7 +30,7 @@ const Home = () => {
   const benefits = DataHome.benefitsSection;
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-full overflow-x-hidden'>
       <Navigation />
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16">
