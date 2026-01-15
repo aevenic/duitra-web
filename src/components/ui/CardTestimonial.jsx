@@ -11,7 +11,7 @@ const CardTestimonial = ({ testimonial }) => {
       <p className="text-neutral-200 mb-6">"{testimonial.text}"</p>
       <div>
         <p className="text-neutral-200">{testimonial.name}</p>
-        <p className="text-neutral-400 text-[14px] font-semibold">{testimonial.location}</p>
+        <p className="text-neutral-400 text-[14px] font-semibold">{testimonial.details}</p>
       </div>
     </div>
   )
