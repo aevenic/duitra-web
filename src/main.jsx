@@ -12,6 +12,7 @@ const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/privacy-policy", element: <PrivacyPolicy /> },
   { path: "/terms-of-service", element: <TermsOfService /> },
+  { path: "/404", element: <div className="text-white text-center pt-20">Page Not Found</div> },
   { path: "*", element: <Navigate to="/404" replace /> },
 ]);
 
