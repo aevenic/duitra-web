@@ -5,23 +5,23 @@ import { useLanguage } from './LanguageContext';
 export const features = [
   {
     img: "/featureimg_1.png",
-    title: { en: "Smart Tracking", id: "Pelacakan Cerdas" },
-    desc: { en: "Monitor your expenses effortlessly with our intuitive interface and automated categorization.", id: "Pantau pengeluaran Anda dengan mudah melalui antarmuka intuitif dan kategorisasi otomatis." }
+    title: { en: "Financial Management", id: "Manajemen Keuangan" },
+    desc: { en: "Record balances, income, and expenses with automatic budget control per category, complete with recurring transactions to keep finances organized and under control each month.", id: "Catat saldo, pemasukan, dan pengeluaran dengan kontrol budget otomatis per kategori, lengkap dengan transaksi rutin agar keuangan tetap rapi dan terkontrol setiap bulan." }
   },
   {
     img: "/featureimg_2.png",
-    title: { en: "Financial Insights", id: "Wawasan Keuangan" },
-    desc: { en: "Get detailed reports and analytics to understand your spending patterns and save more.", id: "Dapatkan laporan dan analitik terperinci untuk memahami pola pengeluaran Anda dan menabung lebih banyak." }
+    title: { en: "Transaction History", id: "Riwayat Transaksi" },
+    desc: { en: "Access transaction history from previous months to monitor financial progress and spending patterns over time.", id: "Akses riwayat transaksi dari bulan-bulan sebelumnya untuk memantau perkembangan dan pola keuangan dari waktu ke waktu." }
   },
   {
     img: "/featureimg_3.png",
-    title: { en: "Budget Management", id: "Manajemen Anggaran" },
-    desc: { en: "Set monthly budgets for different categories and stay on track with real-time notifications.", id: "Tetapkan anggaran bulanan untuk berbagai kategori dan tetap terkendali dengan notifikasi waktu nyata." }
+    title: { en: "Flexible Categories", id: "Kategori Fleksibel" },
+    desc: { en: "Customize income and expense categories based on your needs, making financial tracking more relevant to your lifestyle.", id: "Atur kategori pemasukan dan pengeluaran sesuai kebutuhan, sehingga pencatatan keuangan lebih relevan dengan gaya hidup." }
   },
   {
     img: "/featureimg_4.png",
-    title: { en: "Cloud Sync", id: "Sinkronisasi Cloud" },
-    desc: { en: "Access your financial data across all your devices securely with end-to-end encryption.", id: "Akses data keuangan Anda di semua perangkat secara aman dengan enkripsi ujung-ke-ujung." }
+    title: { en: "Analytics Dashboard", id: "Dashboard Analitik" },
+    desc: { en: "Displays overall monthly and yearly spending, as well as per-category insights, to help understand patterns and evaluate financial performance.", id: "Menampilkan pengeluaran bulanan dan tahunan secara keseluruhan maupun per kategori untuk membantu memahami pola dan evaluasi keuangan." }
   }
 ];
 

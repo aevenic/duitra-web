@@ -1,8 +1,8 @@
 export const DataHome = {
   heroSection: {
     desc: {
-      en: 'We help you build a fast and clear website that attracts customers. You get a professional company profile, a conversion-focused landing page, and an easy-to-use online store.',
-      id: 'Kami bantu anda punya website yang cepat, jelas, dan siap menarik pelanggan. anda bisa dapat company profile yang profesional, landing page yang fokus pada konversi, dan toko online yang mudah digunakan.',
+      en: 'Track income and expenses, manage budgets by category, and understand your spending patterns through analytics and AI insights — all in one app.',
+      id: 'Catat pemasukan dan pengeluaran, kelola budget per kategori, dan pahami pola keuangan melalui analitik serta insight AI — semua terpusat dalam satu aplikasi.',
     },
     cta: [
       { en: 'Download App', id: 'Unduh App' },
@@ -93,8 +93,8 @@ export const DataHome = {
           id: 'Penyimpanan Data Local & Cloud',
         },
         desc: {
-          en: 'Flexible storage options for your peace of mind. Keep your data locally for privacy or sync to the cloud for convenient access across all your devices.',
-          id: 'Opsi penyimpanan fleksibel untuk ketenangan pikiran Anda. Simpan data secara lokal untuk privasi atau sinkronkan ke cloud untuk akses mudah di semua perangkat Anda.',
+          en: 'Your data is stored both locally and in the cloud, synced across devices, with flexible export and import options anytime without the risk of data loss.',
+          id: 'Data disimpan secara lokal dan cloud, sinkron di berbagai perangkat, serta ekspor–impor data kapan pun tanpa takut kehilangan.',
         },
       },
       {
@@ -103,8 +103,8 @@ export const DataHome = {
           id: 'Terintegrasi dengan AI',
         },
         desc: {
-          en: 'Smart insights at your fingertips. Get personalized spending strategies and future financial predictions powered by advanced artificial intelligence.',
-          id: 'Wawasan cerdas di ujung jari Anda. Dapatkan strategi pengeluaran yang dipersonalisasi dan prediksi keuangan masa depan yang didukung oleh kecerdasan buatan canggih.',
+          en: 'AI automatically analyzes transaction patterns, highlights the largest spending categories, and provides smart recommendations to keep your budget under control effortlessly.',
+          id: 'AI secara otomatis menganalisis pola transaksi, menyoroti kategori pengeluaran terbesar, dan memberikan rekomendasi cerdas agar anggaran tetap terkendali tanpa ribet.',
         },
       },
       {
@@ -115,6 +115,16 @@ export const DataHome = {
         desc: {
           en: 'Record transactions effortlessy. Simply speak to log your expenses and income, making financial tracking faster and easier than ever.',
           id: 'Rekam transaksi dengan mudah. Cukup berbicara untuk mencatat pengeluaran dan pemasukan Anda, membuat pelacakan keuangan lebih cepat dan lebih mudah dari sebelumnya.',
+        },
+      },
+      {
+        title: {
+          en: 'Notification',
+          id: 'Notifikasi',
+        },
+        desc: {
+          en: 'Get real-time notifications when your spending exceeds the budget, so you can take immediate action and keep your finances under control.',
+          id: 'Dapatkan notifikasi real-time saat pengeluaran melewati batas anggaran, sehingga bisa langsung mengambil tindakan dan menjaga keuangan tetap terkendali.',
         },
       },
     ],

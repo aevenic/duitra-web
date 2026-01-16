@@ -23,8 +23,8 @@ const Home = () => {
   const column3 = [...testimonials.slice(6, 9), ...testimonials.slice(6, 9)];
 
   const words = {
-    en: ["Scale Up", "Digitalize"],
-    id: ["Kembangkan", "Digitalisasi"]
+    en: ["Track", "Understand"],
+    id: ["Mencatat", "Memahami"]
   };
 
   const benefits = DataHome.benefitsSection;
@@ -40,15 +40,15 @@ const Home = () => {
           <div className="flex flex-col gap-y-4">
             <div className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
-                <>Want to <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
+                <>One app to <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
                   <TypingText words={words[language] || words.en} />
                 </span>
-                  <span className="block">your business?</span></>
+                  <span className="block">your finances.</span></>
               ) : (
-                <>Ingin <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
+                <>Satu aplikasi untuk <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
                   <TypingText words={words[language] || words.id} />
                 </span>
-                  <span className="block">bisnis kamu?</span></>
+                  <span className="block">permasalahan keuanganmu. </span></>
               )}
             </div>
             <div className={`text-justify max-w-[560px] ${textSemi} pr-4`}>

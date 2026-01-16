@@ -26,7 +26,7 @@ const Footer = () => {
 					<div className='text-white/60 text-[12px] md:text-[14px] pl-1'>Legal</div>
 					<div className="flex gap-x-3">
 						<Link to='/privacy-policy'>
-							<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded"> Privacy </button>
+							<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded"> Privacy Policy </button>
 						</Link>
 						<Link to='/terms-of-service'>
 							<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded"> Terms of Service </button>
