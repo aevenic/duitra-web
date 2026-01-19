@@ -7,7 +7,7 @@ const CardFeature = ({ features, activeIndex, language }) => {
 			<div className="flex flex-col gap-y-2">
 				<div className="flex justify-between items-center w-full">
 					<div className="text-blue-400 text-[14px] font-semibold uppercase">
-						Feature {activeIndex + 1}
+						{language === 'id' ? 'Fitur' : 'Feature'} {features[activeIndex].index || activeIndex + 1}
 					</div>
 					{/* Custom Indicators */}
 					<div className="flex gap-x-2">

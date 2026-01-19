@@ -2,30 +2,7 @@ import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
-export const features = [
-  {
-    img: "/featureimg_1.png",
-    title: { en: "Financial Management", id: "Manajemen Keuangan" },
-    desc: { en: "Record balances, income, and expenses with automatic budget control per category, complete with recurring transactions to keep finances organized and under control each month.", id: "Catat saldo, pemasukan, dan pengeluaran dengan kontrol budget otomatis per kategori, lengkap dengan transaksi rutin agar keuangan tetap rapi dan terkontrol setiap bulan." }
-  },
-  {
-    img: "/featureimg_2.png",
-    title: { en: "Transaction History", id: "Riwayat Transaksi" },
-    desc: { en: "Access transaction history from previous months to monitor financial progress and spending patterns over time.", id: "Akses riwayat transaksi dari bulan-bulan sebelumnya untuk memantau perkembangan dan pola keuangan dari waktu ke waktu." }
-  },
-  {
-    img: "/featureimg_3.png",
-    title: { en: "Flexible Categories", id: "Kategori Fleksibel" },
-    desc: { en: "Customize income and expense categories based on your needs, making financial tracking more relevant to your lifestyle.", id: "Atur kategori pemasukan dan pengeluaran sesuai kebutuhan, sehingga pencatatan keuangan lebih relevan dengan gaya hidup." }
-  },
-  {
-    img: "/featureimg_4.png",
-    title: { en: "Analytics Dashboard", id: "Dashboard Analitik" },
-    desc: { en: "Displays overall monthly and yearly spending, as well as per-category insights, to help understand patterns and evaluate financial performance.", id: "Menampilkan pengeluaran bulanan dan tahunan secara keseluruhan maupun per kategori untuk membantu memahami pola dan evaluasi keuangan." }
-  }
-];
-
-const FeatureCarousel = ({ activeIndex, setActiveIndex }) => {
+const FeatureCarousel = ({ activeIndex, setActiveIndex, features }) => {
   const { language } = useLanguage();
 
   const nextSlide = () => {
@@ -41,7 +18,7 @@ const FeatureCarousel = ({ activeIndex, setActiveIndex }) => {
   };
 
   return (
-    <div className="relative w-full pt-12 lg:pb-12">
+    <div className="relative w-full pt-8 lg:pb-12">
       <div className="flex flex-col md:flex-row items-center gap-12 relative h-full">
         {/* Carousel Side (Left - Aligned) */}
         <div className="relative w-full md:w-[60%] flex flex-col justify-center items-center h-[540px]">

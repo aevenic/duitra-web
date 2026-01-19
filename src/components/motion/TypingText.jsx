@@ -8,8 +8,8 @@ const TypingText = ({ words }) => {
 
   React.useEffect(() => {
     const currentWord = words[wordIndex];
-    const speedTyping = 120;
-    const speedDeleting = 60;
+    const speedTyping = 90;
+    const speedDeleting = 40;
 
     let timeout;
 

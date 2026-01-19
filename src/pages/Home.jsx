@@ -7,10 +7,11 @@ import { DataHome } from '../data/dataHome'
 import { useLanguage } from '../components/ui/LanguageContext'
 import Button from '../components/ui/Button'
 import CardTestimonial from '../components/ui/CardTestimonial'
-import FeatureCarousel, { features } from '../components/ui/FeatureCarousel'
+import FeatureCarousel from '../components/ui/FeatureCarousel'
 import CardBenefits from '../components/ui/CardBenefits'
 import Accordion from '../components/ui/Accordion'
 import CardFeature from '../components/ui/CardFeature'
+import CardProblem from '../components/ui/CardProblem'
 
 
 const Home = () => {
@@ -23,8 +24,8 @@ const Home = () => {
   const column3 = [...testimonials.slice(6, 9), ...testimonials.slice(6, 9)];
 
   const words = {
-    en: ["Track", "Understand"],
-    id: ["Mencatat", "Memahami"]
+    en: ["Without Stress.", "Without Guessing."],
+    id: ["Tanpa Stres.", "Tanpa Menghitung."]
   };
 
   const benefits = DataHome.benefitsSection;
@@ -33,25 +34,27 @@ const Home = () => {
     <div className='flex flex-col w-full overflow-x-hidden'>
       <Navigation />
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16">
+      <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16 pb-8">
         <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] md:hidden" />
         <div className="flex flex-col gap-y-12 w-full">
 
           <div className="flex flex-col gap-y-4">
             <div className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
-                <>One app to <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
-                  <TypingText words={words[language] || words.en} />
-                </span>
-                  <span className="block">your finances.</span></>
+                <div>Control your money
+                  <div className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent h-[42px]">
+                    <TypingText words={words[language] || words.en} />
+                  </div>
+                </div>
               ) : (
-                <>Satu aplikasi untuk <span className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
-                  <TypingText words={words[language] || words.id} />
-                </span>
-                  <span className="block">permasalahan keuanganmu. </span></>
+                <div>Control uangmu
+                  <div className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent h-[42px]">
+                    <TypingText words={words[language] || words.id} />
+                  </div>
+                </div>
               )}
             </div>
-            <div className={`text-justify max-w-[560px] ${textSemi} pr-4`}>
+            <div className={`max-w-[560px] ${textSemi} pr-4`}>
               {DataHome.heroSection.desc[language]}
             </div>
             <div className="flex gap-x-2 pt-2">
@@ -60,7 +63,6 @@ const Home = () => {
               ))}
             </div>
           </div>
-
 
           <div className="flex flex-row gap-x-8 lg:gap-x-16 pt-1 pb-8">
             {DataHome.indicatorSection.map((item, index) => (
@@ -75,9 +77,10 @@ const Home = () => {
         </div>
         <img src="/heroimg_desktop.png" alt="heroimg" className="h-[480px] hidden md:block" />
       </section>
+
       {/* Testimonial Section */}
       <section id="testimonials" className="w-full bg-neutral-900">
-        <div className="relative h-[540px] overflow-hidden">
+        <div className="relative h-[500px] overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
           <div className="mx-auto lg:max-w-[1080px] px-4 xl:px-0">
@@ -108,19 +111,55 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* Features Section */}
-      <section id="features" className='flex flex-col mx-auto items-start w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-16 relative'>
-        <FeatureCarousel activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
-        <CardFeature features={features} activeIndex={activeIndex} language={language} />
+
+      {/* Problem Section */}
+      <section id="problem" className="flex flex-col mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-24 pb-24 relative">
+        <div className="flex flex-col items-center text-center gap-y-3 mb-16 relative z-10">
+          <h2 className={`${textHeading1} text-white leading-tight`}>
+            {DataHome.problemSection.title[language]}
+          </h2>
+          <p className={`${textSemi}`}>
+            {DataHome.problemSection.hook[language]}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full mb-16 relative z-10">
+          {DataHome.problemSection.painPoints.map((point, index) => (
+            <CardProblem key={index} text={point[language]} index={index} />
+          ))}
+        </div>
+
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-40 bg-red-500/8 blur-3xl rounded-full pointer-events-none"></div>
       </section>
 
+      {/* Features Section */}
+      <section id="features" className='flex flex-col mx-auto items-start w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-16 relative'>
+        <div className="flex w-full flex-col items-center text-center gap-y-3 mb-4 relative z-10">
+          <h2 className={`${textHeading1} text-white leading-tight`}>
+            {DataHome.featuresSection.title[language]}
+          </h2>
+          <p className={`${textSemi}`}>
+            {DataHome.featuresSection.desc[language]}
+          </p>
+        </div>
+        <FeatureCarousel
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+          features={DataHome.featuresSection.features}
+        />
+        <CardFeature
+          features={DataHome.featuresSection.features}
+          activeIndex={activeIndex}
+          language={language}
+        />
+      </section>
 
       {/* Benefits Section */}
       <section id="benefits" className="flex flex-col mx-auto gap-y-12 w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-16 relative">
         <div className={`${textHeading1} text-white text-center`}>
           {DataHome.benefitsSection.title[language]}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {DataHome.benefitsSection.benefits.map((benefit, index) => (
             <CardBenefits key={index} title={benefit.title[language]} description={benefit.desc[language]} index={index} />
           ))}

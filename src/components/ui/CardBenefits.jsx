@@ -37,30 +37,69 @@ const CardBenefits = ({ title, description, index }) => {
 
   const renderIllustration = () => {
     switch (index) {
-      case 0: // Local & Cloud Storage
+      case 0: // Scan Receipt
         return (
           <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
+            <style>
+              {`
+                @keyframes scan-beam {
+                  0%, 100% { top: 5%; opacity: 0; }
+                  10%, 90% { opacity: 1; }
+                  50% { top: 90%; }
+                }
+                @keyframes receipt-float {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-4px); }
+                }
+                .scan-beam-anim {
+                  animation: scan-beam 2.5s ease-in-out infinite;
+                }
+                .receipt-float-anim {
+                  animation: receipt-float 4s ease-in-out infinite;
+                }
+              `}
+            </style>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative flex items-center justify-center gap-4">
-                {/* Local Device - Made square (w-16) and icon larger */}
-                <div className="relative flex flex-col items-center justify-center h-16 w-16 rounded-lg bg-[#181818]/80 border border-blue-500/30 backdrop-blur shadow-lg shadow-blue-500/10">
-                  <span className="material-symbols-outlined text-blue-400" style={{ fontSize: '28px' }}>smartphone</span>
+              <div className="relative w-full max-w-[200px] h-32 flex items-center justify-center">
+
+                {/* Viewfinder Corners */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Top Left */}
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500 rounded-tl-lg"></div>
+                  {/* Top Right */}
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500 rounded-tr-lg"></div>
+                  {/* Bottom Left */}
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500 rounded-bl-lg"></div>
+                  {/* Bottom Right */}
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500 rounded-br-lg"></div>
                 </div>
 
-                {/* Sync Icon - Made larger */}
-                <div className="flex items-center justify-center">
-                  <span className="material-symbols-outlined text-blue-300" style={{ fontSize: '24px' }}>sync_alt</span>
+                {/* Receipt Card */}
+                <div className="receipt-float-anim relative w-20 h-28 bg-[#fafafa] rounded shadow-lg overflow-hidden flex flex-col items-center pt-3 pb-2 px-2">
+                  {/* Receipt Header */}
+                  <div className="w-8 h-8 rounded-full bg-neutral-200 mb-2"></div>
+                  {/* Lines */}
+                  <div className="w-full space-y-1.5 opacity-60">
+                    <div className="h-1.5 w-full bg-neutral-300 rounded"></div>
+                    <div className="h-1.5 w-3/4 bg-neutral-300 rounded"></div>
+                    <div className="h-1.5 w-full bg-neutral-300 rounded"></div>
+                    <div className="h-1.5 w-1/2 bg-neutral-300 rounded"></div>
+                  </div>
+                  {/* Total */}
+                  <div className="mt-auto w-full pt-2 border-t border-neutral-200">
+                    <div className="h-2 w-1/2 bg-neutral-800 rounded ml-auto"></div>
+                  </div>
                 </div>
 
-                {/* Cloud - Icon larger/clearer */}
-                <div className="relative flex flex-col items-center justify-center h-16 w-16 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 shadow-lg shadow-blue-500/20">
-                  <span className="material-symbols-outlined text-white" style={{ fontSize: '28px' }}>cloud_upload</span>
+                {/* Scan Beam */}
+                <div className="scan-beam-anim absolute left-8 right-8 h-[2px] bg-blue-400 shadow-[0_0_15px_rgba(96,165,250,0.8)] z-10">
+                  <div className="absolute inset-0 bg-blue-400 blur-sm"></div>
                 </div>
 
-                {/* Decor elements */}
-                <div className="absolute -top-6 -right-4 w-20 h-20 bg-blue-500/20 blur-xl rounded-full"></div>
-                <div className="absolute -bottom-6 -left-4 w-20 h-20 bg-blue-400/10 blur-xl rounded-full"></div>
               </div>
+
+              {/* Background Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full"></div>
             </div>
             <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
           </div>
@@ -133,6 +172,90 @@ const CardBenefits = ({ title, description, index }) => {
               {/* Background Glow */}
               <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
             </div>
+            <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
+          </div>
+        );
+      case 3: // Smart Notification
+        return (
+          <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
+            <style>
+              {`
+                @keyframes cursor-move {
+                  0% { transform: translate(-40px, 80px); opacity: 0; }
+                  10% { opacity: 1; }
+                  30%, 45% { transform: translate(-12px, 16px); opacity: 1; }
+                  50% { transform: translate(-8px, 20px); opacity: 0; }
+                  100% { opacity: 0; }
+                }
+                @keyframes bell-tap {
+                  0%, 30% { transform: scale(1); filter: brightness(1); }
+                  40% { transform: scale(0.9); filter: brightness(0.6) contrast(1.2); }
+                  45%, 100% { transform: scale(1); filter: brightness(1); }
+                }
+                @keyframes card-sequence {
+                  0%, 42% { transform: translateY(-50px); opacity: 0; pointer-events: none; }
+                  60%, 90% { transform: translateY(-38px); opacity: 1; pointer-events: auto; }
+                  100% { transform: translateY(-50px); opacity: 0; pointer-events: none; }
+                }
+                @keyframes pulse-red-lite {
+                  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+                  50% { box-shadow: 0 0 15px 1px rgba(239, 68, 68, 0.3); }
+                }
+                .cursor-anim {
+                  animation: cursor-move 5.5s infinite;
+                }
+                .bell-anim {
+                  animation: bell-tap 5.5s infinite;
+                }
+                .card-anim {
+                  animation: card-sequence 5.5s infinite;
+                }
+                .pulse-red-lite-anim {
+                  animation: pulse-red-lite 2s infinite;
+                }
+              `}
+            </style>
+
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              <div className="w-full max-w-[220px] h-full relative">
+
+                {/* Bell Icon Wrapper */}
+                <div className="relative z-20">
+                  <div className="bell-anim h-9 w-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 relative">
+                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>notifications</span>
+
+                    {/* Visual Tap Ripple */}
+                    <div className="absolute inset-0 rounded-xl bg-white/40 opacity-0 animate-ping" style={{ animationIterationCount: 1, animationDelay: '2.4s', animationDuration: '0.6s' }}></div>
+                  </div>
+
+                  {/* Cursor Icon */}
+                  <div className="cursor-anim absolute top-0 left-0 z-30 pointer-events-none">
+                    <span className="material-symbols-outlined text-white drop-shadow-lg" style={{ fontSize: '24px' }}>near_me</span>
+                  </div>
+                </div>
+
+                {/* Notification Card - Now absolutely positioned relative to the container to slide 'over' or 'below' without pushing */}
+                <div className="card-anim absolute top-12 left-0 right-0 bg-[#181818] border-2 border-red-400/40 rounded-xl p-3.5 shadow-2xl relative z-10">
+                  <div className="pulse-red-lite-anim absolute inset-0 rounded-xl pointer-events-none"></div>
+                  <div className="relative z-10 space-y-2">
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-1.5">
+                        <div className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                        <p className="text-[13px] font-bold text-white leading-none">Limit reached!</p>
+                      </div>
+                      <p className="text-[10px] text-neutral-400">Just now</p>
+                    </div>
+                    <p className="text-[11px] text-neutral-400 leading-tight">
+                      You've spent <span className="text-red-400 font-bold">$205</span> of <span className="text-white">$200</span> in Dining.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Background ambient elements */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/5 blur-3xl rounded-full"></div>
+            </div>
+
             <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
           </div>
         );

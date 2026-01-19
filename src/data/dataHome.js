@@ -1,17 +1,49 @@
 export const DataHome = {
   heroSection: {
     desc: {
-      en: 'Track income and expenses, manage budgets by category, and understand your spending patterns through analytics and AI insights — all in one app.',
-      id: 'Catat pemasukan dan pengeluaran, kelola budget per kategori, dan pahami pola keuangan melalui analitik serta insight AI — semua terpusat dalam satu aplikasi.',
+      en: 'Track every expense, stay under budget, and take control of your finances in minutes. No complexity. No confusion.',
+      id: 'Catat setiap pengeluaran, tetap di bawah anggaran, dan kontrol keuanganmu dalam menit. Tidak kompleks. Tidak bingung.',
     },
     cta: [
-      { en: 'Download App', id: 'Unduh App' },
+      { en: 'Start Tracking Now', id: 'Mulai Lacak Sekarang' },
     ],
   },
   indicatorSection: [
     { indicator: '1.2k +', desc: { en: 'Downloads', id: 'Unduhan' } },
     { indicator: '4.8 / 5', desc: { en: 'Rating on Google Play', id: 'Rating di Google Play' } },
   ],
+  problemSection: {
+    title: {
+      en: "Your money disappears. You don’t know why.",
+      id: "Uangmu menghilang. Kamu tidak tahu kenapa."
+    },
+    hook: {
+      en: "You work hard for your income. But somehow, it’s gone faster than you expect.",
+      id: "Kamu bekerja keras untuk penghasilanmu. Tapi entah bagaimana, habis lebih cepat dari yang kamu kira."
+    },
+    painPoints: [
+      {
+        en: "Expenses feel random",
+        id: "Pengeluaran terasa acak"
+      },
+      {
+        en: "Budgets never stick",
+        id: "Anggaran tidak pernah sesuai"
+      },
+      {
+        en: "You don’t see the full picture",
+        id: "Kamu tidak melihat gambaran utuh"
+      },
+      {
+        en: "Financial stress keeps building",
+        id: "Stres finansial terus bertambah"
+      }
+    ],
+    closing: {
+      en: "Without clarity, control is impossible.",
+      id: "Tanpa kejelasan, kendali itu mustahil."
+    }
+  },
   testimonialSection: {
     title: 'What They Said',
     description: 'Hear out what our community said about us around the world.',
@@ -81,20 +113,56 @@ export const DataHome = {
       },
     ]
   },
+  featuresSection: {
+    title: {
+      en: '"Without clarity, control is impossible."',
+      id: '"Tanpa kejelasan, kendali itu mustahil."'
+    },
+    desc: {
+      en: 'Here is how we solve them for you.',
+      id: 'Begini cara kami menyelesaikannya untukmu.',
+    },
+    features: [
+      {
+        index: 1,
+        img: "/featureimg_1.png",
+        title: { en: "Financial Management", id: "Manajemen Keuangan" },
+        desc: { en: "Record balances, income, and expenses with automatic budget control per category, complete with recurring transactions to keep finances organized and under control each month.", id: "Catat saldo, pemasukan, dan pengeluaran dengan kontrol budget otomatis per kategori, lengkap dengan transaksi rutin agar keuangan tetap rapi dan terkontrol setiap bulan." }
+      },
+      {
+        index: 2,
+        img: "/featureimg_2.png",
+        title: { en: "Transaction History", id: "Riwayat Transaksi" },
+        desc: { en: "Access transaction history from previous months to monitor financial progress and spending patterns over time.", id: "Akses riwayat transaksi dari bulan-bulan sebelumnya untuk memantau perkembangan dan pola keuangan dari waktu ke waktu." }
+      },
+      {
+        index: 3,
+        img: "/featureimg_3.png",
+        title: { en: "Flexible Categories", id: "Kategori Fleksibel" },
+        desc: { en: "Customize income and expense categories based on your needs, making financial tracking more relevant to your lifestyle.", id: "Atur kategori pemasukan dan pengeluaran sesuai kebutuhan, sehingga pencatatan keuangan lebih relevan dengan gaya hidup." }
+      },
+      {
+        index: 4,
+        img: "/featureimg_4.png",
+        title: { en: "Analytics Dashboard", id: "Dashboard Analitik" },
+        desc: { en: "Displays overall monthly and yearly spending, as well as per-category insights, to help understand patterns and evaluate financial performance.", id: "Menampilkan pengeluaran bulanan dan tahunan secara keseluruhan maupun per kategori untuk membantu memahami pola dan evaluasi keuangan." }
+      }
+    ],
+  },
   benefitsSection: {
     title: {
-      en: 'Why Duitra?',
-      id: 'Kenapa Duitra?',
+      en: "What's makes us different?",
+      id: "Apa yang membuat kami berbeda?",
     },
     benefits: [
       {
         title: {
-          en: 'Local & Cloud Storage',
-          id: 'Penyimpanan Data Local & Cloud',
+          en: 'Scan Receipt',
+          id: 'Foto Scan Struk Belanja',
         },
         desc: {
-          en: 'Your data is stored both locally and in the cloud, synced across devices, with flexible export and import options anytime without the risk of data loss.',
-          id: 'Data disimpan secara lokal dan cloud, sinkron di berbagai perangkat, serta ekspor–impor data kapan pun tanpa takut kehilangan.',
+          en: 'Instantly turn paper receipts into digital records. Just snap a photo, and our AI will automatically parse and categorize your expenses for you.',
+          id: 'Ubah struk kertas jadi catatan digital seketika. Cukup foto, dan AI kami akan otomatis membaca serta mengategorikan pengeluaranmu tanpa ribet.',
         },
       },
       {
@@ -119,8 +187,8 @@ export const DataHome = {
       },
       {
         title: {
-          en: 'Notification',
-          id: 'Notifikasi',
+          en: 'Smart Notification',
+          id: 'Notifikasi Pintar',
         },
         desc: {
           en: 'Get real-time notifications when your spending exceeds the budget, so you can take immediate action and keep your finances under control.',
