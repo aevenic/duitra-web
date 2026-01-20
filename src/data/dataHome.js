@@ -195,6 +195,16 @@ export const DataHome = {
           id: 'Dapatkan notifikasi real-time saat pengeluaran melewati batas anggaran, sehingga bisa langsung mengambil tindakan dan menjaga keuangan tetap terkendali.',
         },
       },
+      {
+        title: {
+          en: 'Import & Export Data',
+          id: 'Impor & Ekspor Data',
+        },
+        desc: {
+          en: 'Seamlessly move your data. Export your financial reports to PDF or CSV for deep analysis, or import transactions from other sources instantly.',
+          id: 'Pindahkan datamu dengan mudah. Ekspor laporan keuangan ke PDF atau CSV untuk analisis mendalam, atau impor transaksi dari sumber lain secara instan.',
+        },
+      },
     ],
   },
   faqSection: {

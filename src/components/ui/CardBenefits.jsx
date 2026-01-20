@@ -4,6 +4,7 @@ import { textHeading2, textSemi } from '../../data/uiStyles'
 const CardBenefits = ({ title, description, index }) => {
   const num = index + 1;
   const [typedText, setTypedText] = useState('');
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (index === 1) {
@@ -32,6 +33,20 @@ const CardBenefits = ({ title, description, index }) => {
       return () => {
         clearTimeout(timeoutId);
       };
+    }
+
+    if (index === 4) {
+      // Import/Export Progress Animation
+      let currentProgress = 0;
+      const interval = setInterval(() => {
+        currentProgress += 1;
+        if (currentProgress > 100) {
+          currentProgress = 0;
+        }
+        setProgress(currentProgress);
+      }, 50); // 50ms * 100 = 5000ms for full cycle
+
+      return () => clearInterval(interval);
     }
   }, [index]);
 
@@ -256,6 +271,109 @@ const CardBenefits = ({ title, description, index }) => {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/5 blur-3xl rounded-full"></div>
             </div>
 
+            <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
+          </div>
+        );
+      case 4: // Import & Export Data
+        return (
+          <div className="relative h-48 w-full rounded-md bg-[#0c0c0c] bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent overflow-hidden">
+            <style>
+              {`
+                @keyframes dash-move {
+                  to { stroke-dashoffset: -20; }
+                }
+                @keyframes card-fade-csv {
+                  0%, 45% { opacity: 1; transform: scale(1); }
+                  50%, 95% { opacity: 0.3; transform: scale(0.95); }
+                  100% { opacity: 1; transform: scale(1); }
+                }
+                @keyframes card-fade-pdf {
+                  0%, 45% { opacity: 0.3; transform: scale(0.95); }
+                  50%, 95% { opacity: 1; transform: scale(1); }
+                  100% { opacity: 0.3; transform: scale(0.95); }
+                }
+                .dash-anim { animation: dash-move 1s linear infinite; }
+                .card-csv-anim { animation: card-fade-csv 4s infinite ease-in-out; }
+                .card-pdf-anim { animation: card-fade-pdf 4s infinite ease-in-out; }
+              `}
+            </style>
+
+            <div className="absolute inset-0 flex items-center justify-center p-6 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.1)_0%,_transparent_70%)]">
+              <div className="relative w-full h-full flex items-center justify-between px-4">
+
+                {/* Left Side: Mobile App UI */}
+                <div className="w-1/3 flex items-center justify-center z-10">
+                  {/* Mobile Phone Frame */}
+                  <div className="relative w-[80px] h-[140px] bg-[#1a1a1a] border border-neutral-600/50 rounded-xl shadow-xl overflow-hidden flex flex-col">
+                    {/* Phone Notch */}
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-4 h-1 bg-neutral-800 rounded-full z-10"></div>
+                    {/* Phone Screen */}
+                    <div className="flex-1 bg-[#252525] m-1 mt-3 rounded-lg overflow-hidden flex flex-col">
+                      {/* App Header */}
+                      <div className="h-3 bg-blue-500/20 border-b border-blue-500/30 flex items-center pl-2">
+                        <div className="w-4 h-0.5 bg-blue-400/50 rounded-full"></div>
+                      </div>
+                      {/* App Body */}
+                      <div className="p-1.5 space-y-1 flex-1">
+                        <div className="h-6 bg-blue-500/10 rounded border border-blue-500/20"></div>
+                        <div className="space-y-0.5">
+                          <div className="h-1 w-full bg-neutral-700 rounded"></div>
+                          <div className="h-1 w-3/4 bg-neutral-700 rounded"></div>
+                          <div className="h-1 w-1/2 bg-neutral-700 rounded"></div>
+                        </div>
+                      </div>
+                      {/* Sync Icon */}
+                      <div className="flex justify-center pb-2.5">
+                        <span className="material-symbols-outlined text-[10px] text-blue-400 animate-spin" style={{ animationDuration: '3s' }}>sync</span>
+                      </div>
+                    </div>
+                    {/* Phone Button */}
+                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-1 bg-neutral-600 rounded-full"></div>
+                  </div>
+                </div>
+
+                {/* Center: Connectors & Progress */}
+                <div className="flex-1 flex flex-col items-center justify-center px-2 relative h-full">
+                  {/* Animated Dashed Line */}
+                  <div className="w-full h-[2px] relative overflow-hidden mb-0.5">
+                    <svg width="100%" height="2">
+                      <line x1="0" y1="1" x2="100%" y2="1" stroke="#60A5FA" strokeWidth="2" strokeDasharray="4 4" className="dash-anim" opacity="0.6" />
+                    </svg>
+                  </div>
+
+                  {/* Digital Percentage Counter */}
+                  <div className="font-mono font-semibold text-blue-400 tabular-nums">
+                    {progress}%
+                  </div>
+                </div>
+
+                {/* Right Side: Floating Cards (CSV & PDF) */}
+                <div className="flex flex-col gap-3 justify-center items-center w-1/3 z-10">
+                  {/* CSV Card */}
+                  <div className="card-csv-anim flex items-center gap-2 px-3 py-2 bg-[#1e1e1e] border border-green-500/30 rounded-lg shadow-lg shadow-green-500/10 w-full max-w-[100px]">
+                    <div className="w-6 h-6 rounded bg-green-500/20 flex items-center justify-center">
+                      <span className="text-[8px] font-bold text-green-400">CSV</span>
+                    </div>
+                    <div className="space-y-1 flex-1">
+                      <div className="h-1 w-full bg-neutral-700 rounded-full"></div>
+                      <div className="h-1 w-2/3 bg-neutral-700 rounded-full"></div>
+                    </div>
+                  </div>
+
+                  {/* PDF Card */}
+                  <div className="card-pdf-anim flex items-center gap-2 px-3 py-2 bg-[#1e1e1e] border border-red-500/30 rounded-lg shadow-lg shadow-red-500/10 w-full max-w-[100px]">
+                    <div className="w-6 h-6 rounded bg-red-500/20 flex items-center justify-center">
+                      <span className="text-[8px] font-bold text-red-400">PDF</span>
+                    </div>
+                    <div className="space-y-1 flex-1">
+                      <div className="h-1 w-full bg-neutral-700 rounded-full"></div>
+                      <div className="h-1 w-2/3 bg-neutral-700 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
             <div className={`absolute bottom-1.5 left-1.5 p-3 bg-[#0c0c0c] rounded-lg flex items-center justify-center h-[40px] w-[40px] text-[20px] font-bold text-blue-300`}>{num}</div>
           </div>
         );
