@@ -3,7 +3,7 @@ import Button from "./Button"
 
 const Navigation = () => {
 	return (
-		<div className="fixed top-0 w-full z-50 bg-[#0c0c0c]/40 backdrop-blur-sm">
+		<div className="fixed top-0 w-full z-50 bg-[#0c0c0c]/50">
 			<nav className='flex justify-between items-center w-full px-5 py-3.5'>
 				<Link to='/'>
 					<img src="/vite.svg" alt="logo" className="w-9" />

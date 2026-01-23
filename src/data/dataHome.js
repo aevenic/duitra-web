@@ -23,20 +23,20 @@ export const DataHome = {
     },
     painPoints: [
       {
-        en: "Expenses feel random",
-        id: "Pengeluaran terasa acak"
+        en: "Money goes out.\nYou don't know why.",
+        id: "Uang keluar.\nKamu tidak tahu kenapa."
       },
       {
-        en: "Budgets never stick",
-        id: "Anggaran tidak pernah sesuai"
+        en: "You make a budget.\nYou break it again.",
+        id: "Kamu buat anggaran.\nKamu langgar lagi."
       },
       {
-        en: "You don’t see the full picture",
-        id: "Kamu tidak melihat gambaran utuh"
+        en: "You track some things.\nYou still don't see the truth.",
+        id: "Kamu catat sebagian.\nTetap tidak lihat kenyataan."
       },
       {
-        en: "Financial stress keeps building",
-        id: "Stres finansial terus bertambah"
+        en: "Money keeps stressing you.\nMonth after month.",
+        id: "Uang terus membuatmu stres.\nBulan demi bulan."
       }
     ],
     closing: {

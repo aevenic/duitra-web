@@ -3,6 +3,7 @@ import Navigation from '../components/ui/Navigation'
 import Footer from '../components/ui/Footer'
 import { textHeading1, textHeading2, textRegular, textSemi } from '../data/uiStyles'
 import TypingText from '../components/motion/TypingText'
+import HalftoneGlow from '../components/motion/HalftoneGlow'
 import { DataHome } from '../data/dataHome'
 import { useLanguage } from '../components/ui/LanguageContext'
 import Button from '../components/ui/Button'
@@ -34,10 +35,51 @@ const Home = () => {
     <div className='flex flex-col w-full overflow-x-hidden'>
       <Navigation />
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16 pb-8">
-        <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] md:hidden" />
-        <div className="flex flex-col gap-y-12 w-full">
+      <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16 pb-8 relative overflow-x-none">
+        <style>
+          {`
+            @keyframes float-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+            @keyframes float-medium { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
+            @keyframes pulse-glow { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }
+            @keyframes pulse-radial { 0%, 100% { mask-size: 80%; -webkit-mask-size: 80%; opacity: 0.5; } 50% { mask-size: 110%; -webkit-mask-size: 110%; opacity: 0.7; } }
+            `}
+        </style>
+        <div className="relative md:hidden shrink-0 w-full flex justify-center z-10">
+          {/* Mobile Background Glows - Behind Image (z-0) */}
+          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
 
+          {/* Mobile Ornaments - Front (z-30) */}
+          <div className="absolute top-8 right-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2 rounded-xl shadow-xl flex items-center gap-2 transform scale-90" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
+            <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-green-400 text-lg">savings</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[8px] text-neutral-400 uppercase tracking-wider">Savings</span>
+              <span className="text-xs font-bold text-white">+$450</span>
+            </div>
+          </div>
+
+          <div className="absolute bottom-12 left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full shadow-xl flex items-center gap-2 transform scale-90" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
+            <span className="text-[10px] text-white font-medium">Safe Budget</span>
+          </div>
+
+          {/* Mobile Ornament 3: Income (Top Left) */}
+          <div className="absolute top-4 left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2 rounded-xl shadow-xl flex items-center gap-2 transform scale-75" style={{ animation: 'float-medium 7s ease-in-out infinite 1s' }}>
+            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-blue-400 text-lg">payments</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[8px] text-neutral-400 uppercase tracking-wider">Income</span>
+              <span className="text-xs font-bold text-white">+$2,450</span>
+            </div>
+          </div>
+          <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] relative z-10" />
+          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+        </div>
+
+        <div className="flex flex-col gap-y-12 w-full relative z-20">
           <div className="flex flex-col gap-y-4">
             <div className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
@@ -75,7 +117,61 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <img src="/heroimg_desktop.png" alt="heroimg" className="h-[480px] hidden md:block" />
+
+
+        <div className="relative hidden md:block shrink-0 z-20">
+          {/* Background Glows - Move to Backz-0 */}
+          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
+
+          {/* Main Image - z-10 */}
+          <img src="/heroimg_desktop.png" alt="heroimg" className="h-[480px] relative z-10" />
+
+          {/* Ornament 1: Savings Card (Top Left) - z-30 */}
+          <div className="absolute top-12 -left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-3 rounded-xl shadow-xl flex items-center gap-3" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
+            <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-green-400">savings</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-neutral-400 uppercase tracking-wider">Savings Goal</span>
+              <span className="text-sm font-bold text-white">+$450.00</span>
+            </div>
+          </div>
+
+          {/* Ornament 2: Monthly Budget (Bottom Right) - z-30 */}
+          <div className="absolute bottom-24 right-2 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full shadow-xl flex items-center gap-2" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
+            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
+            <span className="text-xs text-white font-medium">Monthly Budget: Safe</span>
+          </div>
+
+          {/* Ornament 3: Income Chip (Top Right) - z-30 */}
+          <div className="absolute top-40 -right-6 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-3 rounded-xl shadow-xl flex items-center gap-3" style={{ animation: 'float-medium 7s ease-in-out infinite 1s' }}>
+            <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-blue-400">payments</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-neutral-400 uppercase tracking-wider">Income</span>
+              <span className="text-sm font-bold text-white">+$2,450.00</span>
+            </div>
+          </div>
+
+          {/* Ornament 4: Recent Transaction (Bottom Left) - z-30 */}
+          <div className="absolute bottom-12 left-0 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2.5 rounded-xl shadow-xl flex items-center gap-2.5" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
+            <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-purple-400 text-lg">receipt_long</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] text-neutral-400 uppercase tracking-wider">Recent Trans.</span>
+              <div className="flex gap-1.5 items-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                <span className="text-[11px] font-bold text-white">Success</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+
+        </div>
       </section>
 
       {/* Testimonial Section */}
@@ -129,7 +225,7 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-40 bg-red-500/8 blur-3xl rounded-full pointer-events-none"></div>
+        <HalftoneGlow color="rgba(239, 68, 68, 0.2)" className="bottom-24 w-[320px] h-[480px]" animation="pulse-radial 4s infinite" />
       </section>
 
       {/* Features Section */}
