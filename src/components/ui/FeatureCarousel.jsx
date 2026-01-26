@@ -21,7 +21,7 @@ const FeatureCarousel = ({ activeIndex, setActiveIndex, features }) => {
     <div className="relative w-full pt-8 lg:pb-12">
       <div className="flex flex-col md:flex-row items-center gap-12 relative h-full">
         {/* Carousel Side (Left - Aligned) */}
-        <div className="relative w-full md:w-[60%] flex flex-col justify-center items-center h-[540px]">
+        <div className="relative w-full md:w-[60%] flex flex-col justify-center items-center h-[480px]">
           <div className="relative w-full h-full flex items-center justify-center">
             {features.map((feature, index) => {
               const isActive = index === activeIndex;

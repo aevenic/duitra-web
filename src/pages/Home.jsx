@@ -13,6 +13,10 @@ import CardBenefits from '../components/ui/CardBenefits'
 import Accordion from '../components/ui/Accordion'
 import CardFeature from '../components/ui/CardFeature'
 import CardProblem from '../components/ui/CardProblem'
+import Savings from '../components/ui/ornaments/Savings'
+import Budget from '../components/ui/ornaments/Budget'
+import Spending from '../components/ui/ornaments/Spending'
+import Transactions from '../components/ui/ornaments/Transactions'
 
 
 const Home = () => {
@@ -46,40 +50,26 @@ const Home = () => {
             `}
         </style>
 
-        <div className="relative md:hidden shrink-0 w-full flex justify-center z-10">
-          <div className="relative overflow-hidden w-full">
-            <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] relative z-10 mx-auto" />
-            <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
-            <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
-            <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-          </div>
+        <div className="relative md:hidden shrink-0 w-full flex justify-center z-10 overflow-hidden">
+          {/* Main Image - z-10 */}
+          <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] relative z-10 mx-auto" />
+          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
 
           {/* Mobile Ornaments - Front (z-30) */}
-          <div className="absolute top-8 right-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2 rounded-xl shadow-xl flex items-center gap-2 transform scale-90" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
-            <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-green-400 text-lg">savings</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[8px] text-neutral-400 uppercase tracking-wider">Savings</span>
-              <span className="text-xs font-bold text-white">+$450</span>
-            </div>
+          <div className="absolute top-12 left-8 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
+            <Savings />
           </div>
-
-          <div className="absolute bottom-12 left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full shadow-xl flex items-center gap-2 transform scale-90" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></div>
-            <span className="text-[10px] text-white font-medium">Safe Budget</span>
+          <div className="absolute bottom-8 right-8 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
+            <Budget />
           </div>
-
-          <div className="absolute top-4 left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2 rounded-xl shadow-xl flex items-center gap-2 transform scale-75" style={{ animation: 'float-medium 7s ease-in-out infinite 1s' }}>
-            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-blue-400 text-lg">payments</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[8px] text-neutral-400 uppercase tracking-wider">Income</span>
-              <span className="text-xs font-bold text-white">+$2,450</span>
-            </div>
+          <div className="absolute top-36 right-8 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 1s' }}>
+            <Spending />
           </div>
-
+          <div className="absolute bottom-24 left-12 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
+            <Transactions />
+          </div>
         </div>
 
         <div className="flex flex-col gap-y-12 w-full relative z-20 px-4 xl:px-0">
@@ -123,57 +113,27 @@ const Home = () => {
 
 
         <div className="relative hidden md:block shrink-0 z-20">
-
           {/* Main Image - z-10 */}
           <img src="/heroimg_desktop.png" alt="heroimg" className="h-[480px] relative z-10" />
           <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
           <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
           <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
 
-          {/* Ornament 1: Savings Card (Top Left) - z-30 */}
-          <div className="absolute top-12 -left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-3 rounded-xl shadow-xl flex items-center gap-3" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
-            <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-green-400">savings</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] text-neutral-400 uppercase tracking-wider">Savings Goal</span>
-              <span className="text-sm font-bold text-white">+$450.00</span>
-            </div>
+          {/* Desktop Ornaments - Front (z-30) */}
+          <div className="absolute top-12 -left-4 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
+            <Savings />
           </div>
-
-          {/* Ornament 2: Monthly Budget (Bottom Right) - z-30 */}
-          <div className="absolute bottom-24 right-2 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full shadow-xl flex items-center gap-2" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
-            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
-            <span className="text-xs text-white font-medium">Monthly Budget: Safe</span>
+          <div className="absolute bottom-24 right-2 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
+            <Budget />
           </div>
-
-          {/* Ornament 3: Income Chip (Top Right) - z-30 */}
-          <div className="absolute top-40 -right-6 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-3 rounded-xl shadow-xl flex items-center gap-3" style={{ animation: 'float-medium 7s ease-in-out infinite 1s' }}>
-            <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-blue-400">payments</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] text-neutral-400 uppercase tracking-wider">Income</span>
-              <span className="text-sm font-bold text-white">+$2,450.00</span>
-            </div>
+          <div className="absolute top-36 -right-2 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 1s' }}>
+            <Spending />
           </div>
-
-          {/* Ornament 4: Recent Transaction (Bottom Left) - z-30 */}
-          <div className="absolute bottom-12 left-0 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2.5 rounded-xl shadow-xl flex items-center gap-2.5" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
-            <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-purple-400 text-lg">receipt_long</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[9px] text-neutral-400 uppercase tracking-wider">Recent Trans.</span>
-              <div className="flex gap-1.5 items-center">
-                <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                <span className="text-[11px] font-bold text-white">Success</span>
-              </div>
-            </div>
+          <div className="absolute bottom-40 -left-8 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
+            <Transactions />
           </div>
-
-
         </div>
+
       </section>
 
       {/* Testimonial Section */}
@@ -227,7 +187,8 @@ const Home = () => {
           ))}
         </div>
 
-        <HalftoneGlow color="rgba(239, 68, 68, 0.2)" className="bottom-24 w-[320px] h-[480px]" animation="pulse-radial 4s infinite" />
+        <HalftoneGlow color="rgba(239, 68, 68, 0.2)" className="top-40 -right-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+        <HalftoneGlow color="rgba(239, 68, 68, 0.2)" className="bottom-20 -left-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
       </section>
 
       {/* Features Section */}
