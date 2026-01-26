@@ -35,7 +35,8 @@ const Home = () => {
     <div className='flex flex-col w-full overflow-x-hidden'>
       <Navigation />
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16 pb-8 relative overflow-x-none">
+
+      <section className="flex flex-col md:flex-row justify-between mx-auto items-center w-full lg:max-w-[1080px] pt-16 pb-8 relative overflow-x-none">
         <style>
           {`
             @keyframes float-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -44,10 +45,14 @@ const Home = () => {
             @keyframes pulse-radial { 0%, 100% { mask-size: 80%; -webkit-mask-size: 80%; opacity: 0.5; } 50% { mask-size: 110%; -webkit-mask-size: 110%; opacity: 0.7; } }
             `}
         </style>
+
         <div className="relative md:hidden shrink-0 w-full flex justify-center z-10">
-          {/* Mobile Background Glows - Behind Image (z-0) */}
-          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
+          <div className="relative overflow-hidden w-full">
+            <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] relative z-10 mx-auto" />
+            <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+            <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
+            <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          </div>
 
           {/* Mobile Ornaments - Front (z-30) */}
           <div className="absolute top-8 right-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2 rounded-xl shadow-xl flex items-center gap-2 transform scale-90" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
@@ -65,7 +70,6 @@ const Home = () => {
             <span className="text-[10px] text-white font-medium">Safe Budget</span>
           </div>
 
-          {/* Mobile Ornament 3: Income (Top Left) */}
           <div className="absolute top-4 left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-2 rounded-xl shadow-xl flex items-center gap-2 transform scale-75" style={{ animation: 'float-medium 7s ease-in-out infinite 1s' }}>
             <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
               <span className="material-symbols-outlined text-blue-400 text-lg">payments</span>
@@ -75,11 +79,10 @@ const Home = () => {
               <span className="text-xs font-bold text-white">+$2,450</span>
             </div>
           </div>
-          <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] relative z-10" />
-          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+
         </div>
 
-        <div className="flex flex-col gap-y-12 w-full relative z-20">
+        <div className="flex flex-col gap-y-12 w-full relative z-20 px-4 xl:px-0">
           <div className="flex flex-col gap-y-4">
             <div className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
@@ -120,12 +123,12 @@ const Home = () => {
 
 
         <div className="relative hidden md:block shrink-0 z-20">
-          {/* Background Glows - Move to Backz-0 */}
-          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
 
           {/* Main Image - z-10 */}
           <img src="/heroimg_desktop.png" alt="heroimg" className="h-[480px] relative z-10" />
+          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
 
           {/* Ornament 1: Savings Card (Top Left) - z-30 */}
           <div className="absolute top-12 -left-4 z-30 bg-neutral-900/80 backdrop-blur-md border border-white/10 p-3 rounded-xl shadow-xl flex items-center gap-3" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
@@ -169,7 +172,6 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
 
         </div>
       </section>
