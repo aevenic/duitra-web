@@ -50,6 +50,26 @@ const AnimatedAmount = ({ start, duration, delay, steps, prefix = "$" }) => {
 };
 
 const CardProblem = ({ text, index }) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+  const cardRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const renderIllustration = () => {
     switch (index) {
@@ -322,30 +342,36 @@ const CardProblem = ({ text, index }) => {
   const textLines = text.split('\n');
 
   return (
-    <div className="group relative w-full h-[360px] p-5 rounded-2xl bg-neutral-900 border border-white/5 hover:border-red-500/40 flex flex-col transition-all duration-500 overflow-hidden">
+    <div
+      ref={cardRef}
+      className={`w-full h-[360px] transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'}`}
+      style={{ transitionDelay: `${index * 350}ms` }}
+    >
+      <div className="group relative w-full h-full p-5 rounded-2xl bg-neutral-900 border border-white/5 hover:border-red-500/40 flex flex-col transition-all duration-500 overflow-hidden">
 
-      {/* Text Content - Multi-line */}
-      <div className="relative z-10 flex flex-col gap-0.5">
-        {textLines.map((line, i) => (
-          <p key={i} className={`text-[15px] md:text-base font-medium leading-snug ${i === 0 ? 'text-neutral-200' : 'text-red-400/90'}`}>
-            {line}
-          </p>
-        ))}
+        {/* Text Content - Multi-line */}
+        <div className="relative z-10 flex flex-col gap-0.5">
+          {textLines.map((line, i) => (
+            <p key={i} className={`text-[15px] md:text-base font-medium leading-snug ${i === 0 ? 'text-neutral-200' : 'text-red-400/90'}`}>
+              {line}
+            </p>
+          ))}
+        </div>
+
+        {/* Dynamic Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-900/10 group-hover:via-red-500/5 group-hover:to-transparent transition-all duration-500" />
+
+        {/* Subtle Glow Spot */}
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-red-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+        {/* Illustration Area - Takes remaining space */}
+        <div className="flex-1 w-full flex items-center justify-center relative z-10 mt-4">
+          {renderIllustration()}
+        </div>
+
+        {/* Decorative Corner */}
+        <div className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-red-500/20 group-hover:bg-red-500/60 transition-colors duration-500" />
       </div>
-
-      {/* Dynamic Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-900/10 group-hover:via-red-500/5 group-hover:to-transparent transition-all duration-500" />
-
-      {/* Subtle Glow Spot */}
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-red-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-      {/* Illustration Area - Takes remaining space */}
-      <div className="flex-1 w-full flex items-center justify-center relative z-10 mt-4">
-        {renderIllustration()}
-      </div>
-
-      {/* Decorative Corner */}
-      <div className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-red-500/20 group-hover:bg-red-500/60 transition-colors duration-500" />
     </div>
   )
 }

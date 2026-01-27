@@ -125,25 +125,25 @@ export const DataHome = {
     features: [
       {
         index: 1,
-        img: "/featureimg_1.png",
+        img: "/featureimg_1.webp",
         title: { en: "Financial Management", id: "Manajemen Keuangan" },
         desc: { en: "Record balances, income, and expenses with automatic budget control per category, complete with recurring transactions to keep finances organized and under control each month.", id: "Catat saldo, pemasukan, dan pengeluaran dengan kontrol budget otomatis per kategori, lengkap dengan transaksi rutin agar keuangan tetap rapi dan terkontrol setiap bulan." }
       },
       {
         index: 2,
-        img: "/featureimg_2.png",
+        img: "/featureimg_2.webp",
         title: { en: "Transaction History", id: "Riwayat Transaksi" },
         desc: { en: "Access transaction history from previous months to monitor financial progress and spending patterns over time.", id: "Akses riwayat transaksi dari bulan-bulan sebelumnya untuk memantau perkembangan dan pola keuangan dari waktu ke waktu." }
       },
       {
         index: 3,
-        img: "/featureimg_3.png",
+        img: "/featureimg_3.webp",
         title: { en: "Flexible Categories", id: "Kategori Fleksibel" },
         desc: { en: "Customize income and expense categories based on your needs, making financial tracking more relevant to your lifestyle.", id: "Atur kategori pemasukan dan pengeluaran sesuai kebutuhan, sehingga pencatatan keuangan lebih relevan dengan gaya hidup." }
       },
       {
         index: 4,
-        img: "/featureimg_4.png",
+        img: "/featureimg_4.webp",
         title: { en: "Analytics Dashboard", id: "Dashboard Analitik" },
         desc: { en: "Displays overall monthly and yearly spending, as well as per-category insights, to help understand patterns and evaluate financial performance.", id: "Menampilkan pengeluaran bulanan dan tahunan secara keseluruhan maupun per kategori untuk membantu memahami pola dan evaluasi keuangan." }
       }

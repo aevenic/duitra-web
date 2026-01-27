@@ -61,7 +61,7 @@ const Footer = () => {
 						style={{ transform: `translateY(${offsetY * 0.38}px)` }}
 					>
 						<img
-							src="/footer_2.png"
+							src="/footer_2.webp"
 							alt="Footer Detail"
 							className="w-full h-full object-contain object-right-bottom md:object-left-bottom"
 						/>

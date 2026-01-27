@@ -52,7 +52,7 @@ const Home = () => {
 
         <div className="relative md:hidden shrink-0 w-full flex justify-center z-10 overflow-hidden">
           {/* Main Image - z-10 */}
-          <img src="/heroimg_mobile.png" alt="heroimg" className="w-[440px] relative z-10 mx-auto" />
+          <img src="/heroimg_mobile.webp" alt="heroimg" className="w-[440px] relative z-10 mx-auto" />
           <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
           <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
           <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
@@ -114,7 +114,7 @@ const Home = () => {
 
         <div className="relative hidden md:block shrink-0 z-20">
           {/* Main Image - z-10 */}
-          <img src="/heroimg_desktop.png" alt="heroimg" className="h-[480px] relative z-10" />
+          <img src="/heroimg_desktop.webp" alt="heroimg" className="h-[480px] relative z-10" />
           <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
           <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
           <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
@@ -192,7 +192,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className='flex flex-col mx-auto items-start w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-16 relative'>
+      <section id="features" className='flex flex-col mx-auto items-start w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-24 relative'>
         <div className="flex w-full flex-col items-center text-center gap-y-3 mb-4 relative z-10">
           <h2 className={`${textHeading1} text-white leading-tight`}>
             {DataHome.featuresSection.title[language]}
@@ -214,7 +214,7 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="flex flex-col mx-auto gap-y-12 w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-16 relative">
+      <section id="benefits" className="flex flex-col mx-auto gap-y-12 w-full lg:max-w-[1080px] px-4 xl:px-0 py-16 relative">
         <div className={`${textHeading1} text-white text-center`}>
           {DataHome.benefitsSection.title[language]}
         </div>
@@ -226,7 +226,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="flex flex-col mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-4 pb-24 relative">
+      <section id="faq" className="flex flex-col mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16 pb-24 relative">
         <div className="flex flex-col gap-y-12 w-full">
           <div className={`${textHeading1} text-white text-center`}>
             {DataHome.faqSection.title[language]}
