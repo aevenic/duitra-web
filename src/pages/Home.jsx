@@ -74,7 +74,7 @@ const Home = () => {
 
         <div className="flex flex-col gap-y-12 w-full relative z-20 px-4 xl:px-0">
           <div className="flex flex-col gap-y-4">
-            <h1 className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
+            <h1 className={`text-[32px] font-semibold text-white max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
                 <div>Control your money
                   <div className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent h-[42px]">
