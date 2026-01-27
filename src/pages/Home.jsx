@@ -74,7 +74,7 @@ const Home = () => {
 
         <div className="flex flex-col gap-y-12 w-full relative z-20 px-4 xl:px-0">
           <div className="flex flex-col gap-y-4">
-            <div className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
+            <h1 className={`${textHeading1} max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
                 <div>Control your money
                   <div className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent h-[42px]">
@@ -88,7 +88,7 @@ const Home = () => {
                   </div>
                 </div>
               )}
-            </div>
+            </h1>
             <div className={`max-w-[560px] ${textSemi} pr-4`}>
               {DataHome.heroSection.desc[language]}
             </div>
@@ -215,9 +215,9 @@ const Home = () => {
 
       {/* Benefits Section */}
       <section id="benefits" className="flex flex-col mx-auto gap-y-12 w-full lg:max-w-[1080px] px-4 xl:px-0 py-16 relative">
-        <div className={`${textHeading1} text-white text-center`}>
+        <h2 className={`${textHeading1} text-white text-center`}>
           {DataHome.benefitsSection.title[language]}
-        </div>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {DataHome.benefitsSection.benefits.map((benefit, index) => (
             <CardBenefits key={index} title={benefit.title[language]} description={benefit.desc[language]} index={index} />
@@ -228,9 +228,9 @@ const Home = () => {
       {/* FAQ Section */}
       <section id="faq" className="flex flex-col mx-auto items-center w-full lg:max-w-[1080px] px-4 xl:px-0 pt-16 pb-24 relative">
         <div className="flex flex-col gap-y-12 w-full">
-          <div className={`${textHeading1} text-white text-center`}>
+          <h2 className={`${textHeading1} text-white text-center`}>
             {DataHome.faqSection.title[language]}
-          </div>
+          </h2>
           <Accordion
             items={DataHome.faqSection.faqs.map(faq => ({
               question: faq.question[language],

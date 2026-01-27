@@ -45,7 +45,7 @@ const Footer = () => {
 	}, []);
 
 	return (
-		<div>
+		<footer>
 			<div ref={footerRef} className="relative w-full h-[320px] bg-[#212228] overflow-hidden">
 				{/* Halftone Texture Layer - Truly Random Opacities */}
 				<div
@@ -79,29 +79,29 @@ const Footer = () => {
 					<div className="absolute bottom-0 md:right-0 pl-3 pr-6 pt-4 pb-2 md:pl-2 md:pr-3 md:pt-2.5 bg-[#0c0c0c] flex flex-col md:flex-row gap-y-4 gap-x-6 pointer-events-auto">
 						<div>
 							<div className='text-white/60 text-[12px] md:text-[14px] pl-1'>Mail</div>
-							<Link to='mailto:aevenic@gmail.com' target='_blank' rel='noopener noreferrer'>
-								<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer w-fit text-[14px] md:text-[16px] font-medium rounded text-white">aevenic@gmail.com</button>
+							<Link to='mailto:aevenic@gmail.com' target='_blank' rel='noopener noreferrer' className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer w-fit text-[14px] md:text-[16px] font-medium rounded text-white inline-block">
+								aevenic@gmail.com
 							</Link>
 						</div>
 						<div>
 							<div className='text-white/60 text-[12px] md:text-[14px] pl-1'>Socials</div>
 							<div className="flex gap-x-3">
-								<Link to='https://instagram.com/aevenic' target='_blank' rel='noopener noreferrer'>
-									<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white"> Instagram </button>
+								<Link to='https://instagram.com/aevenic' target='_blank' rel='noopener noreferrer' className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white">
+									Instagram
 								</Link>
-								<Link to='https://x.com/aevenic' target='_blank' rel='noopener noreferrer'>
-									<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white"> Twitter </button>
+								<Link to='https://x.com/aevenic' target='_blank' rel='noopener noreferrer' className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white">
+									Twitter
 								</Link>
 							</div>
 						</div>
 						<div>
 							<div className='text-white/60 text-[12px] md:text-[14px] pl-1'>Legal</div>
 							<div className="flex gap-x-3">
-								<Link to='/privacy-policy'>
-									<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white"> Privacy Policy </button>
+								<Link to='/privacy-policy' className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white">
+									Privacy Policy
 								</Link>
-								<Link to='/terms-of-service'>
-									<button className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white"> Terms of Service </button>
+								<Link to='/terms-of-service' className="px-1 py-0.5 hover:bg-[#202020] cursor-pointer text-[14px] md:text-[16px] font-medium rounded text-white">
+									Terms of Service
 								</Link>
 							</div>
 						</div>
@@ -109,7 +109,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="w-full text-center bg-[#0c0c0c] pt-2 pb-3 text-white/60 text-[12px]">© 2026 Aevenic Stuido. All rights reserved.</div>
-		</div>
+		</footer>
 	)
 }
 

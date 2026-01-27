@@ -57,7 +57,15 @@ const FeatureCarousel = ({ activeIndex, setActiveIndex, features }) => {
                   className={`absolute transition-all duration-700 ease-in-out transform flex-shrink-0 overflow-hidden rounded-3xl
                       ${positionClass} ${zIndex} ${scale} ${opacity}
                   `}
+                  role="button"
+                  tabIndex="0"
+                  aria-label={`View feature ${index + 1}: ${feature.title[language]}`}
                   onClick={() => setActiveIndex(index)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      setActiveIndex(index);
+                    }
+                  }}
                 >
                   <div className="relative h-[400px] md:h-[480px] w-auto">
                     <img
@@ -82,6 +90,7 @@ const FeatureCarousel = ({ activeIndex, setActiveIndex, features }) => {
             <button
               onClick={(e) => { e.stopPropagation(); prevSlide(); }}
               disabled={activeIndex === 0}
+              aria-label="Previous slide"
               className={`bg-white/10 cursor-pointer backdrop-blur-md p-3 rounded-full transition-all text-white border border-white/10 pointer-events-auto xl:-translate-x-1/2 ${activeIndex === 0 ? 'opacity-20 cursor-not-allowed' : 'hover:bg-white/20'}`}
             >
               <ChevronLeft size={24} />
@@ -89,6 +98,7 @@ const FeatureCarousel = ({ activeIndex, setActiveIndex, features }) => {
             <button
               onClick={(e) => { e.stopPropagation(); nextSlide(); }}
               disabled={activeIndex === features.length - 1}
+              aria-label="Next slide"
               className={`bg-white/10 cursor-pointer backdrop-blur-md p-3 rounded-full transition-all text-white border border-white/10 pointer-events-auto xl:translate-x-1/2 ${activeIndex === features.length - 1 ? 'opacity-20 cursor-not-allowed' : 'hover:bg-white/20'}`}
             >
               <ChevronRight size={24} />
