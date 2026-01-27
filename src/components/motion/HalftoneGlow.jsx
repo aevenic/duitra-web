@@ -17,7 +17,7 @@ const HalftoneGlow = ({
     // Generate Random Halftone Pattern similar to HalftoneEffect.jsx
     const opacities = [1, 0.7, 0.4, 0.2];
     const cellSize = 6;
-    const gridSize = 12; // Small grid that repeats
+    const gridSize = 6; // Small grid that repeats
     const images = [];
     const positions = [];
 
