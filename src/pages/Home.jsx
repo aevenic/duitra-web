@@ -102,7 +102,7 @@ const Home = () => {
           <div className="flex flex-row gap-x-8 lg:gap-x-16 pt-1 pb-8">
             {DataHome.indicatorSection.map((item, index) => (
               <div key={index}>
-                <div className={textHeading2}>{item.indicator}</div>
+                <div className='text-[24px] font-semibold text-white'>{item.indicator}</div>
                 <div className={`${textSemi} text-[13px] lg:text-[14px] font-medium`}>
                   {item.desc[language]}
                 </div>

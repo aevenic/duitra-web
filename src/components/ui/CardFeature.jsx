@@ -19,7 +19,7 @@ const CardFeature = ({ features, activeIndex, language }) => {
 						))}
 					</div>
 				</div>
-				<div className={textHeading2}>
+				<div className='text-[24px] font-semibold text-white'>
 					{features[activeIndex].title[language]}
 				</div>
 				<div className={`${textSemi} text-[14px]`}>
