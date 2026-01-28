@@ -50,29 +50,7 @@ const Home = () => {
             `}
         </style>
 
-        <div className="relative md:hidden shrink-0 w-full flex justify-center z-10 overflow-hidden">
-          {/* Main Image - z-10 */}
-          <img src="/heroimg_mobile.webp" alt="heroimg" className="w-[440px] relative z-10 mx-auto" />
-          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
-          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-
-          {/* Mobile Ornaments - Front (z-30) */}
-          <div className="absolute top-12 left-8 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
-            <Savings />
-          </div>
-          <div className="absolute bottom-8 right-8 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
-            <Budget />
-          </div>
-          <div className="absolute top-36 right-8 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 1s' }}>
-            <Spending />
-          </div>
-          <div className="absolute bottom-24 left-12 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
-            <Transactions />
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-y-12 w-full relative z-20 px-4 xl:px-0">
+        <div className="flex flex-col gap-y-12 w-full relative z-20 px-4 xl:px-0 order-2 md:order-1">
           <div className="flex flex-col gap-y-4">
             <h1 className={`text-[32px] font-semibold text-white max-w-[360px] md:max-w-full leading-11`}>
               {language === "en" ? (
@@ -82,7 +60,7 @@ const Home = () => {
                   </div>
                 </div>
               ) : (
-                <div>Control uangmu
+                <div>Kontrol uangmu
                   <div className="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent h-[42px]">
                     <TypingText words={words[language] || words.id} />
                   </div>
@@ -112,24 +90,27 @@ const Home = () => {
         </div>
 
 
-        <div className="relative hidden md:block shrink-0 z-20">
+        <div className="relative shrink-0 w-full md:w-auto flex justify-center z-10 overflow-hidden md:overflow-visible order-1 md:order-2 mb-6 md:mb-0">
           {/* Main Image - z-10 */}
-          <img src="/heroimg_desktop.webp" alt="heroimg" className="h-[480px] relative z-10" />
-          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
-          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 5s infinite" />
+          <img src="/heroimg_mobile.webp" alt="heroimg" className="w-[440px] relative z-10 mx-auto md:hidden" />
+          <img src="/heroimg_desktop.webp" alt="heroimg" className="h-[480px] relative z-10 hidden md:block" />
 
-          {/* Desktop Ornaments - Front (z-30) */}
-          <div className="absolute top-12 -left-4 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
+          <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
+
+          <HalftoneGlow color="rgba(168, 85, 247, 0.5)" className="bottom-1/4 -right-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(59, 130, 246, 0.5)" className="top-16 md:top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+
+          {/* Ornaments - Front (z-30) */}
+          <div className="absolute top-12 left-8 md:-left-4 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
             <Savings />
           </div>
-          <div className="absolute bottom-24 right-2 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
+          <div className="absolute bottom-8 right-8 md:bottom-24 md:right-2 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 0.5s' }}>
             <Budget />
           </div>
-          <div className="absolute top-36 -right-2 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 1s' }}>
+          <div className="absolute top-36 right-8 md:-right-2 z-30" style={{ animation: 'float-medium 5s ease-in-out infinite 1s' }}>
             <Spending />
           </div>
-          <div className="absolute bottom-40 -left-8 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
+          <div className="absolute bottom-24 left-12 md:bottom-40 md:-left-8 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
             <Transactions />
           </div>
         </div>
