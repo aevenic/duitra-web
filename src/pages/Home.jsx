@@ -94,7 +94,7 @@ const Home = () => {
             </div>
             <div className="flex gap-x-2 pt-2">
               {DataHome.heroSection.cta.map((c, index) => (
-                <Button key={index} label={c[language]} width="w-fit" />
+                <Button key={index} label={c[language]} width="w-fit" type='base' />
               ))}
             </div>
           </div>

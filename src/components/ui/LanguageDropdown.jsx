@@ -28,7 +28,7 @@ const LanguageDropdown = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-x-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 text-white/90 hover:text-white cursor-pointer group"
+        className="flex items-center gap-x-2 px-2 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 text-white/90 hover:text-white cursor-pointer group"
       >
         <Globe size={16} className="text-white/60 group-hover:text-blue-400 transition-colors" />
         <span className="text-[14px] font-medium uppercase tracking-wide">{language}</span>
@@ -41,8 +41,8 @@ const LanguageDropdown = () => {
       {/* Dropdown Menu */}
       <div
         className={`absolute right-0 mt-2 w-44 origin-top-right rounded-xl bg-[#161616]/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden transition-all duration-300 z-50 ${isOpen
-            ? 'opacity-100 scale-100 translate-y-0 visible'
-            : 'opacity-0 scale-95 -translate-y-2 invisible'
+          ? 'opacity-100 scale-100 translate-y-0 visible'
+          : 'opacity-0 scale-95 -translate-y-2 invisible'
           }`}
       >
         <div className="p-1.5 flex flex-col gap-y-1">
@@ -54,8 +54,8 @@ const LanguageDropdown = () => {
                 setIsOpen(false);
               }}
               className={`flex items-center justify-between w-full px-3 py-2.5 rounded-lg transition-all duration-200 group cursor-pointer ${language === lang.code
-                  ? 'bg-blue-600/10 text-blue-400'
-                  : 'hover:bg-white/5 text-white/70 hover:text-white'
+                ? 'bg-blue-600/10 text-blue-400'
+                : 'hover:bg-white/5 text-white/70 hover:text-white'
                 }`}
             >
               <div className="flex items-center gap-x-3">

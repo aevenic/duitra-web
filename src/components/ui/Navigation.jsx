@@ -4,16 +4,16 @@ import LanguageDropdown from "./LanguageDropdown"
 
 const Navigation = () => {
 	return (
-		<div className="fixed top-0 w-full z-50 bg-[#0c0c0c]/70 backdrop-blur-md border-b border-white/5">
-			<nav className='flex justify-between items-center w-full px-4 py-3.5'>
+		<div className="fixed top-0 w-full z-50 bg-[#0c0c0c]/70 backdrop-blur-md border-b border-white/3">
+			<nav className='flex justify-between items-center w-full px-4 py-2.5'>
 				<Link to='/'>
-					<img src="/vite.svg" alt="logo" className="w-9" />
+					<img src="/brand.svg" alt="logo" className="w-8" />
 				</Link>
 
-				<div className="flex items-center gap-x-3">
+				<div className="flex items-center gap-x-2">
 					<Button
+						type='nav'
 						url='/download'
-						className='px-4 py-1.5'
 						label="Download App"
 					/>
 					<LanguageDropdown />
