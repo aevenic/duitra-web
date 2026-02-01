@@ -94,9 +94,8 @@ const Home = () => {
           <img src="/heroimg_desktop.webp" alt="heroimg" className="h-[480px] relative z-10 hidden md:block" />
 
           <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
-
-          <HalftoneGlow color="rgba(198, 76, 255, 1)" className="-top-6 md:-top-12 -right-28 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
-          <HalftoneGlow color="rgba(59, 173, 255, 1)" className="top-16 md:top-24 -left-40 w-[440px] h-[360px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(198, 76, 255, 1)" className="-top-6 md:-top-24 -right-12 sm:right-4 md:-right-20 lg:-right-24 xl:-right-32 w-[460px] h-[460px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(59, 173, 255, 1)" className="top-8 md:top-10 -left-12 sm:left-4 md:-left-18 lg:-left-32 w-[460px] h-[460px]" animation="pulse-radial 4s infinite" />
 
           {/* Ornaments - Front (z-30) */}
           <div className="absolute top-12 left-3 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
