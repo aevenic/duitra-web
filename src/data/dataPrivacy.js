@@ -57,6 +57,16 @@ export const DataPrivacy = {
           }
         },
         {
+          title: {
+            en: 'Receipt Scanning and AI Extraction',
+            id: 'Pemindaian Struk dan Ekstraksi AI'
+          },
+          desc: {
+            en: 'The App allows users to extract transaction details from receipts by either taking a photo directly using the device camera or uploading an existing receipt image. Photos captured directly via the camera are processed only temporarily for AI-based image and text recognition and are not stored locally on the device. After the extraction process is completed, the camera-captured image is immediately deleted. Uploaded images are processed solely to extract data. The information extracted from receipts is limited to item names and their corresponding prices, which are then saved as transaction data within the App.',
+            id: 'Aplikasi memungkinkan pengguna mengekstrak detail transaksi dari struk dengan mengambil foto langsung melalui kamera perangkat atau mengunggah gambar struk yang sudah ada. Foto yang diambil langsung melalui kamera diproses hanya sementara untuk kebutuhan pengenalan gambar dan teks berbasis AI dan tidak disimpan secara lokal di perangkat. Setelah proses ekstraksi selesai, foto hasil kamera akan segera dihapus. Gambar yang diunggah diproses semata-mata untuk tujuan ekstraksi data. Informasi yang diekstrak dari struk dibatasi hanya pada nama item dan harga masing-masing, yang kemudian disimpan sebagai data transaksi di dalam Aplikasi.'
+          }
+        },
+        {
           title: { en: 'Microphone and Voice Input', id: 'Mikrofon dan Input Suara' },
           desc: {
             en: 'The App may access the device microphone only when the user explicitly activates the voice input feature. Audio input is used solely to convert spoken numbers or phrases into text for expense entry purposes (such as filling in amounts or notes). Voice recordings are not stored, retained, or shared, and audio data is processed only temporarily to perform the requested voice-to-text functionality.',
