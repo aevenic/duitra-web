@@ -14,7 +14,6 @@ import Accordion from '../components/ui/Accordion'
 import CardFeature from '../components/ui/CardFeature'
 import CardProblem from '../components/ui/CardProblem'
 import Savings from '../components/ui/ornaments/Savings'
-import Budget from '../components/ui/ornaments/Budget'
 import Spending from '../components/ui/ornaments/Spending'
 import Transactions from '../components/ui/ornaments/Transactions'
 
@@ -94,20 +93,17 @@ const Home = () => {
           <img src="/heroimg_desktop.webp" alt="heroimg" className="h-[480px] relative z-10 hidden md:block" />
 
           <div className="absolute bottom-0 -left-32 -right-32 h-full bg-gradient-to-t from-[3%] from-[#0c0c0c] via-[#0c0c0c]/30 to-transparent z-15 pointer-events-none"></div>
-          <HalftoneGlow color="rgba(198, 76, 255, 1)" className="-top-6 md:-top-24 -right-12 sm:right-4 md:-right-20 lg:-right-24 xl:-right-32 w-[460px] h-[460px]" animation="pulse-radial 4s infinite" />
-          <HalftoneGlow color="rgba(59, 173, 255, 1)" className="top-8 md:top-10 -left-12 sm:left-4 md:-left-18 lg:-left-32 w-[460px] h-[460px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(198, 76, 255, 1)" className="-top-6 md:-top-24 -right-12 sm:right-4 md:-right-20 xl:-right-32 w-[460px] h-[460px]" animation="pulse-radial 4s infinite" />
+          <HalftoneGlow color="rgba(59, 173, 255, 1)" className="top-8 md:top-10 -left-12 sm:left-4 md:-left-18 lg:-left-20 xl:-left-32 w-[460px] h-[460px]" animation="pulse-radial 4s infinite" />
 
           {/* Ornaments - Front (z-30) */}
-          <div className="absolute top-12 left-3 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
+          <div className="absolute top-12 left-8 md:-left-4 z-30" style={{ animation: 'float-slow 6s ease-in-out infinite' }}>
             <Savings />
           </div>
-          <div className="absolute bottom-8 right-5 md:bottom-24 z-30" style={{ animation: 'float-slow 5s ease-in-out infinite 0.5s' }}>
-            <Budget />
-          </div>
-          <div className="absolute top-36 right-3 z-30" style={{ animation: 'float-slow 5s ease-in-out infinite 1s' }}>
+          <div className="absolute top-36 right-6 xl:-right-3 z-30" style={{ animation: 'float-slow 5s ease-in-out infinite 0.5s' }}>
             <Spending />
           </div>
-          <div className="absolute bottom-24 left-6 md:bottom-40 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 2s' }}>
+          <div className="absolute bottom-16 left-20 md:left-2 md:bottom-28 z-30" style={{ animation: 'float-slow 8s ease-in-out infinite 1s' }}>
             <Transactions />
           </div>
         </div>
