@@ -3,12 +3,12 @@ import { ChevronDown } from 'lucide-react';
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-white/8">
       <button
-        className="w-full py-6 flex justify-between items-center text-left hover:text-blue-400 transition-colors group"
+        className="w-full py-3.5 flex justify-between items-center text-left hover:text-blue-400 transition-colors group"
         onClick={onClick}
       >
-        <span className="text-lg md:text-xl font-medium text-white group-hover:text-blue-400 transition-colors">
+        <span className="md:text-lg font-medium text-white group-hover:text-blue-400 transition-colors">
           {question}
         </span>
         <ChevronDown
