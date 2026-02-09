@@ -70,6 +70,16 @@ export const DataTOS = {
     },
     {
       heading: {
+        en: 'Receipt Scanning Feature',
+        id: 'Fitur Pemindaian Struk',
+      },
+      content: {
+        en: 'The App may provide a receipt scanning feature that allows users to extract transaction data by taking a photo directly using the device camera or by uploading an existing receipt image. By using this feature, you acknowledge and agree that:\n\n- Receipt scanning is performed only upon explicit user action.\n- Photos captured directly via the device camera are processed temporarily for AI-based extraction and are not stored locally on the device.\n- Camera-captured images are deleted immediately after the extraction process is completed.\n- Uploaded receipt images are used solely for the purpose of extracting transaction data.\n- The data extracted from receipts is limited to item names and their corresponding prices.\n- Extracted information may not be fully accurate due to image quality, receipt format, or AI limitations, and users remain responsible for reviewing and verifying all extracted data before saving it as a transaction.\n\nThe developer does not guarantee the completeness or accuracy of receipt extraction results and shall not be held liable for any errors, omissions, or losses arising from the use of this feature.',
+        id: 'Aplikasi dapat menyediakan fitur pemindaian struk yang memungkinkan pengguna mengekstrak data transaksi dengan mengambil foto langsung melalui kamera perangkat atau dengan mengunggah gambar struk yang sudah ada. Dengan menggunakan fitur ini, Anda mengakui dan menyetujui bahwa:\n\n- Pemindaian struk hanya dilakukan atas tindakan eksplisit pengguna.\n- Foto yang diambil langsung melalui kamera perangkat diproses sementara untuk kebutuhan ekstraksi berbasis AI dan tidak disimpan secara lokal di perangkat.\n- Foto hasil kamera akan dihapus segera setelah proses ekstraksi selesai.\n- Gambar struk yang diunggah digunakan semata-mata untuk tujuan ekstraksi data transaksi.\n- Data yang diekstrak dari struk dibatasi hanya pada nama item dan harga masing-masing.\n- Informasi hasil ekstraksi mungkin tidak sepenuhnya akurat karena kualitas gambar, format struk, atau keterbatasan AI, dan pengguna tetap bertanggung jawab untuk meninjau serta memverifikasi data sebelum menyimpannya sebagai transaksi.\n\nPengembang tidak menjamin kelengkapan atau keakuratan hasil ekstraksi struk dan tidak bertanggung jawab atas kesalahan, kelalaian, atau kerugian apa pun yang timbul dari penggunaan fitur ini.'
+      },
+    },
+    {
+      heading: {
         en: 'Voice Input and Device Permissions',
         id: 'Input Suara dan Izin Perangkat',
       },
