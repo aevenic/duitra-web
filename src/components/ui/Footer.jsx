@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
+import HalftoneGlow from '../motion/HalftoneGlow'
 
 const Footer = () => {
 	const [offsetY, setOffsetY] = useState(0);
-	const [halftoneStyle, setHalftoneStyle] = useState({});
 	const footerRef = useRef(null);
 
 	useEffect(() => {
@@ -17,28 +17,6 @@ const Footer = () => {
 			}
 		};
 
-		// Generate Random Halftone Pattern
-		const opacities = [0.45, 0.30, 0.20, 0.10];
-		const cellSize = 20;
-		const gridSize = 9;
-		const images = [];
-		const positions = [];
-
-		for (let x = 0; x < gridSize; x++) {
-			for (let y = 0; y < gridSize; y++) {
-				const opacity = opacities[Math.floor(Math.random() * opacities.length)];
-				images.push(`radial-gradient(rgba(255, 255, 255, ${opacity}) 3px, transparent 0)`);
-				positions.push(`${x * cellSize}px ${y * cellSize}px`);
-			}
-		}
-
-		setHalftoneStyle({
-			backgroundImage: images.join(','),
-			backgroundPosition: positions.join(','),
-			backgroundSize: `${cellSize * gridSize}px ${cellSize * gridSize}px`,
-			backgroundRepeat: 'repeat'
-		});
-
 		window.addEventListener('scroll', handleScroll);
 		handleScroll();
 		return () => window.removeEventListener('scroll', handleScroll);
@@ -47,17 +25,18 @@ const Footer = () => {
 	return (
 		<footer>
 			<div ref={footerRef} className="relative w-full h-[320px] bg-[#212228] overflow-hidden">
-				{/* Halftone Texture Layer - Truly Random Opacities */}
-				<div
-					className="absolute inset-0 pointer-events-none z-0"
-					style={halftoneStyle}
+				{/* Halftone Texture Layer */}
+				<HalftoneGlow
+					color="rgba(255, 255, 255, 0.15)"
+					className="inset-0 opacity-40"
+					noMask={true}
 				/>
 
 				<div className="absolute inset-x-0 top-0 max-w-[1440px] mx-auto h-full pointer-events-none z-0">
 					{/* Parallax Image Layers */}
 					{/* Footer 1 - Right Side on Mobile, Left Side on Desktop */}
 					<div
-						className="absolute top-12 lg:-top-32 right-10 md:left-4 lg:left-16 xl:left-32 h-[200%] lg:h-[350%] pointer-events-none z-0"
+						className="absolute -top-20 lg:-top-32 right-10 md:left-4 lg:left-16 xl:left-32 h-[250%] lg:h-[350%] pointer-events-none z-0"
 						style={{ transform: `translateY(${offsetY * 0.38}px)` }}
 					>
 						<img

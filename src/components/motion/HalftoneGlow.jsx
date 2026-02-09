@@ -7,8 +7,9 @@ import React, { useMemo } from 'react';
  * @param {string} color - The color of the halftone dots (rgba recommended)
  * @param {string} className - Additional CSS classes for positioning and size
  * @param {string} animation - CSS animation style string
+ * @param {boolean} noMask - If true, the radial gradient mask will be removed
  */
-const HalftoneGlow = ({ color, className, animation }) => {
+const HalftoneGlow = ({ color, className, animation, noMask = false }) => {
 
   const svgBackground = useMemo(() => {
     // Parse the color to extract RGB values
@@ -43,9 +44,21 @@ const HalftoneGlow = ({ color, className, animation }) => {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${svgSize}" height="${svgSize}">${circles}</svg>`;
     const encodedSvg = encodeURIComponent(svg);
 
-    return {
+    const baseStyles = {
       backgroundImage: `url("data:image/svg+xml,${encodedSvg}")`,
       backgroundRepeat: 'repeat',
+      // GPU Acceleration
+      willChange: 'opacity',
+      transform: 'translateZ(0)',
+      contain: 'strict',
+    };
+
+    if (noMask) {
+      return baseStyles;
+    }
+
+    return {
+      ...baseStyles,
       // Radial mask: solid in the middle, transparent at the edges
       maskImage: 'radial-gradient(circle, black 10%, transparent 60%)',
       WebkitMaskImage: 'radial-gradient(circle, black 10%, transparent 60%)',
@@ -53,12 +66,8 @@ const HalftoneGlow = ({ color, className, animation }) => {
       WebkitMaskRepeat: 'no-repeat',
       maskPosition: 'center calc(50% + 20px)',
       WebkitMaskPosition: 'center calc(50% + 20px)',
-      // GPU Acceleration
-      willChange: 'opacity',
-      transform: 'translateZ(0)',
-      contain: 'strict',
     };
-  }, [color]);
+  }, [color, noMask]);
 
   return (
     <div
