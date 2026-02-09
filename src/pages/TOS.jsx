@@ -1,6 +1,5 @@
 import React from 'react'
 import Navigation from '../components/ui/Navigation'
-import Footer from '../components/ui/Footer'
 import { DataTOS } from '../data/dataTOS'
 import { useLanguage } from '../components/ui/LanguageContext'
 import { textHeading1, textHeading2, textHeading3, textSemi } from '../data/uiStyles'
@@ -75,8 +74,6 @@ const TermsOfService = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }
